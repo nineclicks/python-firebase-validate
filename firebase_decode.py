@@ -14,7 +14,7 @@ def _get_public_key(pem):
     return public_key
 
 
-def verify_firebase_jwt(token,
+def decode_firebase_jwt(token,
                       certs_url='https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com',
                       audience=None,
                       certs={},
@@ -62,6 +62,6 @@ if __name__ == '__main__':
     token = sys.argv[2]
 
     # return certs to cache them. provide certs from some cache and only make request to google if the provided certs are old.
-    decoded, certs = verify_firebase_jwt(token, audience=audience, return_certs=True)
+    decoded, certs = decode_firebase_jwt(token, audience=audience, return_certs=True)
     print(json.dumps(decoded, indent=2))
     print(json.dumps(certs, indent=2))
