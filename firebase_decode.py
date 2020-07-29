@@ -29,7 +29,7 @@ def verify_firebase_jwt(token,
         certs = _get_certs(certs_url)
 
     # Get the cert specified in our token header as bytes
-    # If a matching kid was not provided and it not found online, will raise KeyError
+    # If a matching kid was not provided and it was not found online, will raise KeyError
     cert = certs[kid].encode('ascii')
 
     # Turn the cert into a public key so the pyjwt can consume it

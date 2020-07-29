@@ -3,7 +3,7 @@ Validate a Google Firebase JWT in Python
 
 # Usage
 ```
-python -m pip install -r requirements
+python -m pip install -r requirements.txt
 python firebase_decode <audience/aud/firebase-project-name> <token>
 ```
 
