@@ -17,8 +17,11 @@ def _get_public_key(pem):
 def decode_firebase_jwt(token,
                       certs_url='https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com',
                       audience=None,
-                      certs={},
+                      certs=None,
                       return_certs=False):
+
+    if certs is None:
+        certs = {}
                     
     # Get the token header so we know which cert it was signed with (kid)
     header = jwt.get_unverified_header(token)
